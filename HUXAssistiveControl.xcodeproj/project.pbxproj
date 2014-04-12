@@ -13,15 +13,14 @@
 		7249060018F8A1EA00AC83EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 724905FE18F8A1EA00AC83EB /* InfoPlist.strings */; };
 		7249060218F8A1EA00AC83EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249060118F8A1EA00AC83EB /* main.m */; };
 		7249060618F8A1EA00AC83EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249060518F8A1EA00AC83EB /* AppDelegate.m */; };
-		7249060918F8A1EA00AC83EB /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7249060718F8A1EA00AC83EB /* Main_iPhone.storyboard */; };
-		7249060C18F8A1EA00AC83EB /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7249060A18F8A1EA00AC83EB /* Main_iPad.storyboard */; };
-		7249060F18F8A1EA00AC83EB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249060E18F8A1EA00AC83EB /* ViewController.m */; };
+		7249060F18F8A1EA00AC83EB /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249060E18F8A1EA00AC83EB /* DemoViewController.m */; };
 		7249061118F8A1EA00AC83EB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7249061018F8A1EA00AC83EB /* Images.xcassets */; };
 		7249061818F8A1EA00AC83EB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7249061718F8A1EA00AC83EB /* XCTest.framework */; };
 		7249061918F8A1EA00AC83EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724905F518F8A1EA00AC83EB /* Foundation.framework */; };
 		7249061A18F8A1EA00AC83EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724905F918F8A1EA00AC83EB /* UIKit.framework */; };
 		7249062218F8A1EA00AC83EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7249062018F8A1EA00AC83EB /* InfoPlist.strings */; };
 		7249062418F8A1EA00AC83EB /* HUXAssistiveControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249062318F8A1EA00AC83EB /* HUXAssistiveControlTests.m */; };
+		7249063018F8EBC900AC83EB /* HUXAssistiveControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249062F18F8EBC900AC83EB /* HUXAssistiveControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,16 +44,16 @@
 		7249060318F8A1EA00AC83EB /* HUXAssistiveControl-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HUXAssistiveControl-Prefix.pch"; sourceTree = "<group>"; };
 		7249060418F8A1EA00AC83EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7249060518F8A1EA00AC83EB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7249060818F8A1EA00AC83EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		7249060B18F8A1EA00AC83EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		7249060D18F8A1EA00AC83EB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7249060E18F8A1EA00AC83EB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7249060D18F8A1EA00AC83EB /* DemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
+		7249060E18F8A1EA00AC83EB /* DemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
 		7249061018F8A1EA00AC83EB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7249061618F8A1EA00AC83EB /* HUXAssistiveControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HUXAssistiveControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7249061718F8A1EA00AC83EB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		7249061F18F8A1EA00AC83EB /* HUXAssistiveControlTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HUXAssistiveControlTests-Info.plist"; sourceTree = "<group>"; };
 		7249062118F8A1EA00AC83EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7249062318F8A1EA00AC83EB /* HUXAssistiveControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HUXAssistiveControlTests.m; sourceTree = "<group>"; };
+		7249062E18F8EBC900AC83EB /* HUXAssistiveControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUXAssistiveControl.h; sourceTree = "<group>"; };
+		7249062F18F8EBC900AC83EB /* HUXAssistiveControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUXAssistiveControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,12 +113,11 @@
 		724905FB18F8A1EA00AC83EB /* HUXAssistiveControl */ = {
 			isa = PBXGroup;
 			children = (
+				7249062D18F8A22700AC83EB /* Classes */,
 				7249060418F8A1EA00AC83EB /* AppDelegate.h */,
 				7249060518F8A1EA00AC83EB /* AppDelegate.m */,
-				7249060718F8A1EA00AC83EB /* Main_iPhone.storyboard */,
-				7249060A18F8A1EA00AC83EB /* Main_iPad.storyboard */,
-				7249060D18F8A1EA00AC83EB /* ViewController.h */,
-				7249060E18F8A1EA00AC83EB /* ViewController.m */,
+				7249060D18F8A1EA00AC83EB /* DemoViewController.h */,
+				7249060E18F8A1EA00AC83EB /* DemoViewController.m */,
 				7249061018F8A1EA00AC83EB /* Images.xcassets */,
 				724905FC18F8A1EA00AC83EB /* Supporting Files */,
 			);
@@ -153,6 +151,15 @@
 				7249062018F8A1EA00AC83EB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7249062D18F8A22700AC83EB /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7249062E18F8EBC900AC83EB /* HUXAssistiveControl.h */,
+				7249062F18F8EBC900AC83EB /* HUXAssistiveControl.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,9 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7249060C18F8A1EA00AC83EB /* Main_iPad.storyboard in Resources */,
 				7249061118F8A1EA00AC83EB /* Images.xcassets in Resources */,
-				7249060918F8A1EA00AC83EB /* Main_iPhone.storyboard in Resources */,
 				7249060018F8A1EA00AC83EB /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,7 +258,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7249060F18F8A1EA00AC83EB /* ViewController.m in Sources */,
+				7249060F18F8A1EA00AC83EB /* DemoViewController.m in Sources */,
+				7249063018F8EBC900AC83EB /* HUXAssistiveControl.m in Sources */,
 				7249060618F8A1EA00AC83EB /* AppDelegate.m in Sources */,
 				7249060218F8A1EA00AC83EB /* main.m in Sources */,
 			);
@@ -284,22 +290,6 @@
 				724905FF18F8A1EA00AC83EB /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		7249060718F8A1EA00AC83EB /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7249060818F8A1EA00AC83EB /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		7249060A18F8A1EA00AC83EB /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7249060B18F8A1EA00AC83EB /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		7249062018F8A1EA00AC83EB /* InfoPlist.strings */ = {
@@ -393,6 +383,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HUXAssistiveControl/HUXAssistiveControl-Prefix.pch";
 				INFOPLIST_FILE = "HUXAssistiveControl/HUXAssistiveControl-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -406,6 +397,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HUXAssistiveControl/HUXAssistiveControl-Prefix.pch";
 				INFOPLIST_FILE = "HUXAssistiveControl/HUXAssistiveControl-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -7,12 +7,22 @@
 //
 
 #import "AppDelegate.h"
+#import "DemoViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    
+    DemoViewController *demoVC = [[DemoViewController alloc] init];
+    self.window.rootViewController = demoVC;
+    [self.window makeKeyAndVisible];
+    
+    [demoVC startDemo];
+    
     return YES;
 }
 							
