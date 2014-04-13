@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DemoViewController.h"
+#import "HUXAssistiveControl.h"
 
 @implementation AppDelegate
 
@@ -18,12 +19,24 @@
     // Override point for customization after application launch.
     
     DemoViewController *demoVC = [[DemoViewController alloc] init];
-    self.window.rootViewController = demoVC;
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:demoVC];
+    self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
     
-    [demoVC startDemo];
+    [self createAssistiveControl];
     
     return YES;
+}
+
+- (void)createAssistiveControl
+{
+    UIView *collapsedView = [[UIView alloc] initWithFrame:CGRectMake(10, 300, 40, 40)];
+    UIView *expandedView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
+    
+    collapsedView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5f];
+    expandedView.backgroundColor = [[UIColor purpleColor] colorWithAlphaComponent:0.75f];
+    
+    [HUXAssistiveControl createOnMainWindowWithCollapsedView:collapsedView andExpandedView:expandedView];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
