@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DemoViewController : UIViewController
+@end
 
-- (void)startDemo;
-
+@interface DemoDetailViewController : UIViewController
 @end

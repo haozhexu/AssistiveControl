@@ -34,17 +34,20 @@
 
 @class HUXAssistiveControl;
 
-/**
- * Touch delegate of HUXAssistiveControl
- **/
-@protocol HUXAssistiveControlTouchDelegate <NSObject>
+typedef NS_ENUM(NSInteger, HUXAssistiveControlExpandedLocation)
+{
+    assistiveControlExpandedLocationCenter      = 0,
+    assistiveControlExpandedLocationTop         = 1 << 1,
+    assistiveControlExpandedLocationLeft        = 1 << 2,
+    assistiveControlExpandedLocationBottom      = 1 << 3,
+    assistiveControlExpandedLocationRight       = 1 << 4
+};
 
-@optional
-- (void)assistiveControl:(HUXAssistiveControl *)control willBeginTrackingWithTouch:(UITouch *)touch event:(UIEvent *)event;
-- (void)assistiveControl:(HUXAssistiveControl *)control didContinueTrackingWithTouch:(UITouch *)touch event:(UIEvent *)event;
-- (void)assistiveControl:(HUXAssistiveControl *)control didEndTrackingWithTouch:(UITouch *)touch event:(UIEvent *)event;
-
-@end
+typedef NS_ENUM(NSInteger, HUXAssistiveControlState)
+{
+    assistiveControlStateCollapsed,
+    assistiveControlStateExpanded
+};
 
 @interface HUXAssistiveControl : UIControl
 
@@ -54,21 +57,13 @@
  **/
 @property (nonatomic) BOOL stickyEdge;
 
-/**
- * Delegate of all touch events of the control
- **/
-@property (nonatomic, weak) id<HUXAssistiveControlTouchDelegate> delegate;
+@property (nonatomic) HUXAssistiveControlExpandedLocation expandedLocation;
+@property (nonatomic, readonly) HUXAssistiveControlState currentState;
 
-/**
- * Creates the control with specified frame, on specified view with an optional touch delegate
- **/
-+ (HUXAssistiveControl *)createAssistiveControlWithFrame:(CGRect)frame onView:(UIView *)view touchDelegate:(id<HUXAssistiveControlTouchDelegate>)delegate;
+@property (nonatomic, strong) UIView *collapsedView;
+@property (nonatomic, strong) UIView *expandedView;
 
-/**
- * Creates the control with specified frame, on main window (UIWindow) with an optional touch delegate.
- * The control will be visible throughout most of the lifetime of the app
- * Note: it looks for [[[UIApplication sharedApplication] delegate] window], and does nothing if the window doesn't exist
- **/
-+ (HUXAssistiveControl *)createAssistiveControlWithFrame:(CGRect)frame onMainWindowWithDelegate:(id<HUXAssistiveControlTouchDelegate>)delegate;
++ (HUXAssistiveControl *)createOnView:(UIView *)view withCollapsedView:(UIView *)collapsedView andExpandedView:(UIView *)expandedView;
++ (HUXAssistiveControl *)createOnMainWindowWithCollapsedView:(UIView *)collapsedView andExpandedView:(UIView *)expandedView;
 
 @end

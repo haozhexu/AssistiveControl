@@ -10,13 +10,13 @@
 
 @interface HUXAssistiveControl ()
 
-@property (nonatomic) CGPoint previousTouchPoint;
+@property (nonatomic) CGPoint previousTouchPoint, collapsedViewLastPosition;
+@property (nonatomic) BOOL draggedAfterFirstTouch;
 
 @end
 
 @implementation HUXAssistiveControl
 
-const static CGFloat kDefaultBackgroundAlpha = 0.5f;
 const static NSTimeInterval kAnimDuration = 0.3f;
 
 - (id)initWithFrame:(CGRect)frame
@@ -28,7 +28,7 @@ const static NSTimeInterval kAnimDuration = 0.3f;
         // by default we want the control to stick to edge of screen (or its superview)
         // to mimic the behaviour of Assistive Touch
         _stickyEdge = YES;
-        self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:kDefaultBackgroundAlpha];
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
@@ -46,15 +46,35 @@ const static NSTimeInterval kAnimDuration = 0.3f;
     [self adjustControlPositionForStickyEdgeWithCompletion:nil];
 }
 
+- (void)setCollapsedView:(UIView *)collapsedView
+{
+    [_collapsedView removeFromSuperview];
+    _collapsedView = collapsedView;
+    _collapsedView.userInteractionEnabled = NO;
+    _collapsedViewLastPosition = collapsedView.frame.origin;
+    
+    if (_currentState == assistiveControlStateCollapsed)
+    {
+        [self showCollapsedView];
+    }
+}
+
+- (void)setExpandedView:(UIView *)expandedView
+{
+    [_expandedView removeFromSuperview];
+    _expandedView = expandedView;
+    
+    if (_currentState == assistiveControlStateExpanded)
+    {
+        [self showExpandedView];
+    }
+}
+
 #pragma mark - Essential control action events
 - (BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
 {
     _previousTouchPoint = [touch locationInView:self.superview];
-    
-    if ([_delegate respondsToSelector:@selector(assistiveControl:willBeginTrackingWithTouch:event:)])
-    {
-        [_delegate assistiveControl:self willBeginTrackingWithTouch:touch event:event];
-    }
+    _draggedAfterFirstTouch = NO;
     
     return YES;
 }
@@ -62,30 +82,42 @@ const static NSTimeInterval kAnimDuration = 0.3f;
 - (BOOL)continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
 {
     CGPoint touchPoint = [touch locationInView:self.superview];
-    CGSize movementDelta = CGSizeMake(touchPoint.x - _previousTouchPoint.x,touchPoint.y - _previousTouchPoint.y);
+    
+    _draggedAfterFirstTouch = YES;
+    
+    if (_currentState == assistiveControlStateCollapsed)
+    {
+        CGSize movementDelta = CGSizeMake(touchPoint.x - _previousTouchPoint.x,touchPoint.y - _previousTouchPoint.y);
+        self.center = CGPointMake(self.center.x + movementDelta.width, self.center.y + movementDelta.height);
+    }
     
     _previousTouchPoint = touchPoint;
-    
-    self.center = CGPointMake(self.center.x + movementDelta.width, self.center.y + movementDelta.height);
-    
-    if ([_delegate respondsToSelector:@selector(assistiveControl:didContinueTrackingWithTouch:event:)])
-    {
-        [_delegate assistiveControl:self didContinueTrackingWithTouch:touch event:event];
-    }
     
     return YES;
 }
 
 - (void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    __weak HUXAssistiveControl *weakSelf = self;
-    
-    [self adjustControlPositionForStickyEdgeWithCompletion:^(BOOL frameChanged){
-        if ([_delegate respondsToSelector:@selector(assistiveControl:didEndTrackingWithTouch:event:)])
+    if (_currentState == assistiveControlStateCollapsed)
+    {
+        if (_draggedAfterFirstTouch)
         {
-            [_delegate assistiveControl:weakSelf didEndTrackingWithTouch:touch event:event];
+            [self adjustControlPositionForStickyEdgeWithCompletion:nil];
         }
-    }];
+        else
+        {
+            [self showExpandedView];
+        }
+    }
+    else
+    {
+        CGPoint touchPoint = [touch locationInView:self];
+        if (CGRectContainsPoint(_expandedView.frame, touchPoint) == NO)
+        {
+            [self showCollapsedView];
+        }
+    }
+    
 }
 
 #pragma mark - Private
@@ -137,7 +169,6 @@ const static NSTimeInterval kAnimDuration = 0.3f;
     }
     if (edgeInsets.right < edgeDistance)
     {
-        edgeDistance = edgeInsets.right;
         destPosition = CGPointMake(containerBounds.size.width - self.frame.size.width, self.frame.origin.y);
     }
     
@@ -161,26 +192,83 @@ const static NSTimeInterval kAnimDuration = 0.3f;
     return destPosition;
 }
 
+- (void)showExpandedView
+{
+    [_collapsedView removeFromSuperview];
+    
+    _collapsedViewLastPosition = self.frame.origin;
+    
+    // work out where to put expanded view
+    UIView *container = self.superview;
+    CGRect containerBounds = container.bounds;
+    CGRect destFrame = _expandedView.frame;
+    
+    if (_expandedLocation == assistiveControlExpandedLocationCenter)
+    {
+        destFrame.origin = CGPointMake((containerBounds.size.width - destFrame.size.width) / 2, (containerBounds.size.height - destFrame.size.height) / 2);
+    }
+    else
+    {
+        if (_expandedLocation & assistiveControlExpandedLocationTop)
+        {
+            destFrame.origin.y = 0;
+        }
+        if (_expandedLocation & assistiveControlExpandedLocationRight)
+        {
+            destFrame.origin.x = containerBounds.size.width - destFrame.size.width;
+        }
+        if (_expandedLocation & assistiveControlExpandedLocationBottom)
+        {
+            destFrame.origin.y = containerBounds.size.height - destFrame.size.height;
+        }
+        if (_expandedLocation & assistiveControlExpandedLocationLeft)
+        {
+            destFrame.origin.x = 0;
+        }
+    }
+    
+    self.frame = self.superview.bounds;
+    _expandedView.frame = destFrame;
+    
+    [self addSubview:_expandedView];
+    
+    _currentState = assistiveControlStateExpanded;
+}
+
+- (void)showCollapsedView
+{
+    [_expandedView removeFromSuperview];
+    
+    CGRect destFrame = _collapsedView.frame;
+    destFrame.origin = _collapsedViewLastPosition;
+    
+    self.frame = destFrame;
+    _collapsedView.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2);
+    
+    [self addSubview:_collapsedView];
+    
+    [self adjustControlPositionForStickyEdgeWithCompletion:nil];
+    
+    _currentState = assistiveControlStateCollapsed;
+}
+
 #pragma mark - Convenient Creators
 
-+ (HUXAssistiveControl *)createAssistiveControlWithFrame:(CGRect)frame onView:(UIView *)view touchDelegate:(id<HUXAssistiveControlTouchDelegate>)delegate
++ (HUXAssistiveControl *)createOnView:(UIView *)view withCollapsedView:(UIView *)collapsedView andExpandedView:(UIView *)expandedView
 {
-    HUXAssistiveControl *control = [[HUXAssistiveControl alloc] initWithFrame:frame];
-    control.delegate = delegate;
+    HUXAssistiveControl *control = [[HUXAssistiveControl alloc] initWithFrame:collapsedView.frame];
     [view addSubview:control];
-    [view bringSubviewToFront:control];
+    
+    control.collapsedView = collapsedView;
+    control.expandedView = expandedView;
     
     return control;
 }
 
-+ (HUXAssistiveControl *)createAssistiveControlWithFrame:(CGRect)frame onMainWindowWithDelegate:(id<HUXAssistiveControlTouchDelegate>)delegate
++ (HUXAssistiveControl *)createOnMainWindowWithCollapsedView:(UIView *)collapsedView andExpandedView:(UIView *)expandedView
 {
-    UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
-    if (mainWindow != nil)
-    {
-        return [self createAssistiveControlWithFrame:frame onView:mainWindow touchDelegate:delegate];
-    }
-    return nil;
+    UIView *baseView = [[[UIApplication sharedApplication] delegate] window];
+    return [self createOnView:baseView withCollapsedView:collapsedView andExpandedView:expandedView];
 }
 
 @end
