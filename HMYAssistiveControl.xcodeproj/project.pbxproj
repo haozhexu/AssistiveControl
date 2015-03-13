@@ -38,7 +38,7 @@
 		724905F518F8A1EA00AC83EB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		724905F718F8A1EA00AC83EB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		724905F918F8A1EA00AC83EB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		724905FD18F8A1EA00AC83EB /* HMYAssistiveControl-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HMYAssistiveControl-Info.plist"; sourceTree = "<group>"; };
+		724905FD18F8A1EA00AC83EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		724905FF18F8A1EA00AC83EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7249060118F8A1EA00AC83EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7249060318F8A1EA00AC83EB /* HMYAssistiveControl-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMYAssistiveControl-Prefix.pch"; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 		724905FC18F8A1EA00AC83EB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				724905FD18F8A1EA00AC83EB /* HMYAssistiveControl-Info.plist */,
+				724905FD18F8A1EA00AC83EB /* Info.plist */,
 				724905FE18F8A1EA00AC83EB /* InfoPlist.strings */,
 				7249060118F8A1EA00AC83EB /* main.m */,
 				7249060318F8A1EA00AC83EB /* HMYAssistiveControl-Prefix.pch */,
@@ -343,6 +343,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = HMYAssistiveControl/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -376,6 +377,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = HMYAssistiveControl/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -389,8 +391,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "HUXAssistiveControl/HMYAssistiveControl-Prefix.pch";
-				INFOPLIST_FILE = "HUXAssistiveControl/HMYAssistiveControl-Info.plist";
+				GCC_PREFIX_HEADER = "HMYAssistiveControl/HMYAssistiveControl-Prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = HMYAssistiveControl;
 				WRAPPER_EXTENSION = app;
@@ -403,8 +404,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "HUXAssistiveControl/HMYAssistiveControl-Prefix.pch";
-				INFOPLIST_FILE = "HUXAssistiveControl/HMYAssistiveControl-Info.plist";
+				GCC_PREFIX_HEADER = "HMYAssistiveControl/HMYAssistiveControl-Prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = HMYAssistiveControl;
 				WRAPPER_EXTENSION = app;
