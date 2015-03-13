@@ -23,18 +23,19 @@
  **/
 
 //
-//  HUXAssistiveControl.h
-//  HUXAssistiveControl
+//  HMYAssistiveControl.h
+//  HMYAssistiveControl
 //
 //  Created by HAOZHE XU on 12/04/2014.
+//  http://www.huiimy.ninja
 //  Copyright (c) 2014 Haozhe XU. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@class HUXAssistiveControl;
+@class HMYAssistiveControl;
 
-typedef NS_ENUM(NSInteger, HUXAssistiveControlExpandedLocation)
+typedef NS_ENUM(NSInteger, HMYAssistiveControlExpandedLocation)
 {
     assistiveControlExpandedLocationCenter      = 0,
     assistiveControlExpandedLocationTop         = 1 << 1,
@@ -43,13 +44,13 @@ typedef NS_ENUM(NSInteger, HUXAssistiveControlExpandedLocation)
     assistiveControlExpandedLocationRight       = 1 << 4
 };
 
-typedef NS_ENUM(NSInteger, HUXAssistiveControlState)
+typedef NS_ENUM(NSInteger, HMYAssistiveControlState)
 {
     assistiveControlStateCollapsed,
     assistiveControlStateExpanded
 };
 
-@interface HUXAssistiveControl : UIControl
+@interface HMYAssistiveControl : UIControl
 
 /**
  * A flag indicate whether the control should 'stick to edge' of screen (or its superview in general)
@@ -57,13 +58,13 @@ typedef NS_ENUM(NSInteger, HUXAssistiveControlState)
  **/
 @property (nonatomic) BOOL stickyEdge;
 
-@property (nonatomic) HUXAssistiveControlExpandedLocation expandedLocation;
-@property (nonatomic, readonly) HUXAssistiveControlState currentState;
+@property (nonatomic) HMYAssistiveControlExpandedLocation expandedLocation;
+@property (nonatomic, readonly) HMYAssistiveControlState currentState;
 
 @property (nonatomic, strong) UIView *collapsedView;
 @property (nonatomic, strong) UIView *expandedView;
 
-+ (HUXAssistiveControl *)createOnView:(UIView *)view withCollapsedView:(UIView *)collapsedView andExpandedView:(UIView *)expandedView;
-+ (HUXAssistiveControl *)createOnMainWindowWithCollapsedView:(UIView *)collapsedView andExpandedView:(UIView *)expandedView;
++ (HMYAssistiveControl *)createOnView:(UIView *)view withCollapsedView:(UIView *)collapsedView andExpandedView:(UIView *)expandedView;
++ (HMYAssistiveControl *)createOnMainWindowWithCollapsedView:(UIView *)collapsedView andExpandedView:(UIView *)expandedView;
 
 @end

@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  HUXAssistiveControl
+//  HMYAssistiveControl
 //
 //  Created by HAOZHE XU on 12/04/2014.
 //  Copyright (c) 2014 Haozhe XU. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DemoViewController.h"
-#import "HUXAssistiveControl.h"
+#import "HMYAssistiveControl.h"
 
 @implementation AppDelegate
 
@@ -36,7 +36,7 @@
     collapsedView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5f];
     expandedView.backgroundColor = [[UIColor purpleColor] colorWithAlphaComponent:0.75f];
     
-    [HUXAssistiveControl createOnMainWindowWithCollapsedView:collapsedView andExpandedView:expandedView];
+    [HMYAssistiveControl createOnMainWindowWithCollapsedView:collapsedView andExpandedView:expandedView];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

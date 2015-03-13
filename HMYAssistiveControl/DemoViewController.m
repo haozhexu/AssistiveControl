@@ -1,6 +1,6 @@
 //
 //  ViewController.m
-//  HUXAssistiveControl
+//  HMYAssistiveControl
 //
 //  Created by HAOZHE XU on 12/04/2014.
 //  Copyright (c) 2014 Haozhe XU. All rights reserved.

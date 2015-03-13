@@ -1,21 +1,21 @@
 //
-//  HUXAssistiveControl.m
-//  HUXAssistiveControl
+//  HMYAssistiveControl.m
+//  HMYAssistiveControl
 //
 //  Created by HAOZHE XU on 12/04/2014.
 //  Copyright (c) 2014 Haozhe XU. All rights reserved.
 //
 
-#import "HUXAssistiveControl.h"
+#import "HMYAssistiveControl.h"
 
-@interface HUXAssistiveControl ()
+@interface HMYAssistiveControl ()
 
 @property (nonatomic) CGPoint previousTouchPoint, collapsedViewLastPosition;
 @property (nonatomic) BOOL draggedAfterFirstTouch;
 
 @end
 
-@implementation HUXAssistiveControl
+@implementation HMYAssistiveControl
 
 const static NSTimeInterval kAnimDuration = 0.3f;
 
@@ -254,9 +254,9 @@ const static NSTimeInterval kAnimDuration = 0.3f;
 
 #pragma mark - Convenient Creators
 
-+ (HUXAssistiveControl *)createOnView:(UIView *)view withCollapsedView:(UIView *)collapsedView andExpandedView:(UIView *)expandedView
++ (HMYAssistiveControl *)createOnView:(UIView *)view withCollapsedView:(UIView *)collapsedView andExpandedView:(UIView *)expandedView
 {
-    HUXAssistiveControl *control = [[HUXAssistiveControl alloc] initWithFrame:collapsedView.frame];
+    HMYAssistiveControl *control = [[HMYAssistiveControl alloc] initWithFrame:collapsedView.frame];
     [view addSubview:control];
     
     control.collapsedView = collapsedView;
@@ -265,7 +265,7 @@ const static NSTimeInterval kAnimDuration = 0.3f;
     return control;
 }
 
-+ (HUXAssistiveControl *)createOnMainWindowWithCollapsedView:(UIView *)collapsedView andExpandedView:(UIView *)expandedView
++ (HMYAssistiveControl *)createOnMainWindowWithCollapsedView:(UIView *)collapsedView andExpandedView:(UIView *)expandedView
 {
     UIView *baseView = [[[UIApplication sharedApplication] delegate] window];
     return [self createOnView:baseView withCollapsedView:collapsedView andExpandedView:expandedView];
