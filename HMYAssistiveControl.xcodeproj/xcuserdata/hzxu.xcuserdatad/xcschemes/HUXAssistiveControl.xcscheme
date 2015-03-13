@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "724905F118F8A1EA00AC83EB"
-               BuildableName = "HUXAssistiveControl.app"
-               BlueprintName = "HUXAssistiveControl"
-               ReferencedContainer = "container:HUXAssistiveControl.xcodeproj">
+               BuildableName = "HMYAssistiveControl.app"
+               BlueprintName = "HMYAssistiveControl"
+               ReferencedContainer = "container:HMYAssistiveControl.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7249061518F8A1EA00AC83EB"
-               BuildableName = "HUXAssistiveControlTests.xctest"
-               BlueprintName = "HUXAssistiveControlTests"
-               ReferencedContainer = "container:HUXAssistiveControl.xcodeproj">
+               BuildableName = "HMYAssistiveControlTests.xctest"
+               BlueprintName = "HMYAssistiveControlTests"
+               ReferencedContainer = "container:HMYAssistiveControl.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "724905F118F8A1EA00AC83EB"
-            BuildableName = "HUXAssistiveControl.app"
-            BlueprintName = "HUXAssistiveControl"
-            ReferencedContainer = "container:HUXAssistiveControl.xcodeproj">
+            BuildableName = "HMYAssistiveControl.app"
+            BlueprintName = "HMYAssistiveControl"
+            ReferencedContainer = "container:HMYAssistiveControl.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -58,13 +58,14 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "724905F118F8A1EA00AC83EB"
-            BuildableName = "HUXAssistiveControl.app"
-            BlueprintName = "HUXAssistiveControl"
-            ReferencedContainer = "container:HUXAssistiveControl.xcodeproj">
+            BuildableName = "HMYAssistiveControl.app"
+            BlueprintName = "HMYAssistiveControl"
+            ReferencedContainer = "container:HMYAssistiveControl.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -76,13 +77,14 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "724905F118F8A1EA00AC83EB"
-            BuildableName = "HUXAssistiveControl.app"
-            BlueprintName = "HUXAssistiveControl"
-            ReferencedContainer = "container:HUXAssistiveControl.xcodeproj">
+            BuildableName = "HMYAssistiveControl.app"
+            BlueprintName = "HMYAssistiveControl"
+            ReferencedContainer = "container:HMYAssistiveControl.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,6 +1,6 @@
 //
-//  HUXAssistiveControlTests.m
-//  HUXAssistiveControlTests
+//  HMYAssistiveControlTests.m
+//  HMYAssistiveControlTests
 //
 //  Created by HAOZHE XU on 12/04/2014.
 //  Copyright (c) 2014 Haozhe XU. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface HUXAssistiveControlTests : XCTestCase
+@interface HMYAssistiveControlTests : XCTestCase
 
 @end
 
-@implementation HUXAssistiveControlTests
+@implementation HMYAssistiveControlTests
 
 - (void)setUp
 {
