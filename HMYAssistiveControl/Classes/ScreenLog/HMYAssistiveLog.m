@@ -308,6 +308,10 @@ static const NSInteger kDefaultListSizeLimit = 256;
     NSString *log = [NSString stringWithFormat:format, args];
     [(HMYAssistiveLogExpandedView *)self.expandedView newLogAddedInChannel:channel text:log];
     [(HMYAssistiveLogCollapsedView *)self.collapsedView newLogAddedInChannel:channel text:log];
+    if (self.alsoLogInConsole)
+    {
+        NSLog(@"[%@] %@", channel, log);
+    }
     va_end(args);
 }
 
