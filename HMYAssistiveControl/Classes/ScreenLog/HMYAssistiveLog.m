@@ -28,6 +28,7 @@
 
 @property (nonatomic, strong) UITextView *logTextView;
 @property (nonatomic, strong) UIScrollView *channelScrollView;
+@property (nonatomic, weak) UIButton *lastButtonAdded;
 
 @end
 
@@ -126,12 +127,13 @@ static NSString * const kAllChannelName = @"ALL";
     [channelButton setTitle:channel forState:UIControlStateNormal];
     [channelButton addTarget:self action:@selector(channelButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIView *lastView = self.channelScrollView.subviews.lastObject;
-    CGRect newFrame = CGRectMake(lastView.frame.origin.x + lastView.frame.size.width + kChannelButtonSpacing, 0, kChannelButtonWidth, self.channelScrollView.bounds.size.height);
+    CGRect newFrame = CGRectMake(self.lastButtonAdded.frame.origin.x + self.lastButtonAdded.frame.size.width + kChannelButtonSpacing, 0, kChannelButtonWidth, self.channelScrollView.bounds.size.height);
     channelButton.frame = newFrame;
     
     [self.channelScrollView addSubview:channelButton];
     self.channelScrollView.contentSize = CGSizeMake(newFrame.origin.x + newFrame.size.width, self.channelScrollView.bounds.size.height);
+    
+    self.lastButtonAdded = channelButton;
 }
 
 - (void)updateLogsForChannelIndex:(NSInteger)channelIndex
@@ -181,7 +183,7 @@ static const NSInteger kLabelCount = 3;
     {
         _labels = [[NSMutableArray alloc] initWithCapacity:kLabelCount];
         
-        self.backgroundColor = [UIColor blackColor];
+        self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.75];
         
         [self addViews];
         [self setupConstraints];
