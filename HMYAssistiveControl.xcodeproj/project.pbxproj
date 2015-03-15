@@ -21,6 +21,7 @@
 		7249062218F8A1EA00AC83EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7249062018F8A1EA00AC83EB /* InfoPlist.strings */; };
 		7249062418F8A1EA00AC83EB /* HMYAssistiveControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249062318F8A1EA00AC83EB /* HMYAssistiveControlTests.m */; };
 		7249063018F8EBC900AC83EB /* HMYAssistiveControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249062F18F8EBC900AC83EB /* HMYAssistiveControl.m */; };
+		72DE03311AB3B30000DF86AA /* HMYAssistiveLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DE03301AB3B30000DF86AA /* HMYAssistiveLog.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		7249062318F8A1EA00AC83EB /* HMYAssistiveControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMYAssistiveControlTests.m; sourceTree = "<group>"; };
 		7249062E18F8EBC900AC83EB /* HMYAssistiveControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMYAssistiveControl.h; sourceTree = "<group>"; };
 		7249062F18F8EBC900AC83EB /* HMYAssistiveControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMYAssistiveControl.m; sourceTree = "<group>"; };
+		72DE032F1AB3B30000DF86AA /* HMYAssistiveLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMYAssistiveLog.h; sourceTree = "<group>"; };
+		72DE03301AB3B30000DF86AA /* HMYAssistiveLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMYAssistiveLog.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,8 @@
 		7216981E1AB3A49700A6B80A /* ScreenLog */ = {
 			isa = PBXGroup;
 			children = (
+				72DE032F1AB3B30000DF86AA /* HMYAssistiveLog.h */,
+				72DE03301AB3B30000DF86AA /* HMYAssistiveLog.m */,
 			);
 			path = ScreenLog;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72DE03311AB3B30000DF86AA /* HMYAssistiveLog.m in Sources */,
 				7249060F18F8A1EA00AC83EB /* DemoViewController.m in Sources */,
 				7249063018F8EBC900AC83EB /* HMYAssistiveControl.m in Sources */,
 				7249060618F8A1EA00AC83EB /* AppDelegate.m in Sources */,

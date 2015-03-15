@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "DemoViewController.h"
 #import "HMYAssistiveControl.h"
+#import "HMYAssistiveLog.h"
 
 @implementation AppDelegate
 
@@ -30,13 +31,8 @@
 
 - (void)createAssistiveControl
 {
-    UIView *collapsedView = [[UIView alloc] initWithFrame:CGRectMake(10, 300, 40, 40)];
-    UIView *expandedView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
-    
-    collapsedView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5f];
-    expandedView.backgroundColor = [[UIColor purpleColor] colorWithAlphaComponent:0.75f];
-    
-    [HMYAssistiveControl createOnMainWindowWithCollapsedView:collapsedView andExpandedView:expandedView];
+    HMYAssistiveLog *sharedALog = [HMYAssistiveLog sharedInstance];
+    [HMYAssistiveControl createOnMainWindowWithCollapsedView:sharedALog.collapsedView andExpandedView:sharedALog.expandedView];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
