@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "HMYAssistiveControl"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "A UIControl subclass that mimics the behaviour of iOS Assistive Touch."
 
   s.description  = <<-DESC
