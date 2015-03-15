@@ -7,6 +7,7 @@
 //
 
 #import "DemoViewController.h"
+#import "HMYAssistiveLog.h"
 
 @interface DemoViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -75,6 +76,9 @@
 {
     DemoDetailViewController *detailVC = [[DemoDetailViewController alloc] init];
     [self.navigationController pushViewController:detailVC animated:YES];
+    
+    NSString *message = [NSString stringWithFormat:@"Did select item at section %ld, row %ld", (long)indexPath.section, (long)indexPath.row];
+    UIDLog(@"list", message);
 }
 
 @end
@@ -93,11 +97,21 @@
     textLabel.translatesAutoresizingMaskIntoConstraints = NO;
     textLabel.text = @"Assistive control added to main window, so it is universally visible throughout the lifetime of the app.";
     
-    NSDictionary *metrics = @{@"margin": @(10)};
-    
     [contentView addSubview:textLabel];
-    [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-margin-[textLabel]|" options:0 metrics:metrics views:@{@"textLabel": textLabel}]];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.backgroundColor = [UIColor greenColor];
+    button.translatesAutoresizingMaskIntoConstraints = NO;
+    [button setTitle:@"PRESS ME" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(buttonAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    [contentView addSubview:button];
+    
+    NSDictionary *metrics = @{@"margin": @(10)};
+    [contentView addConstraint:[NSLayoutConstraint constraintWithItem:textLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
     [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-margin-[textLabel]-margin-|" options:0 metrics:metrics views:@{@"textLabel": textLabel}]];
+    [contentView addConstraint:[NSLayoutConstraint constraintWithItem:textLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:button attribute:NSLayoutAttributeTop multiplier:1 constant:-10]];
+    [contentView addConstraint:[NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
     
     self.view = contentView;
 }
@@ -106,6 +120,12 @@
 {
     [super viewDidLoad];
     self.title = @"Demo Details";
+}
+
+#pragma mark - Button Action
+- (void)buttonAction
+{
+    UIDLog(@"detail", @"Button pressed");
 }
 
 @end
