@@ -1,0 +1,493 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		724905F618F8A1EA00AC83EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724905F518F8A1EA00AC83EB /* Foundation.framework */; };
+		724905F818F8A1EA00AC83EB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724905F718F8A1EA00AC83EB /* CoreGraphics.framework */; };
+		724905FA18F8A1EA00AC83EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724905F918F8A1EA00AC83EB /* UIKit.framework */; };
+		7249060018F8A1EA00AC83EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 724905FE18F8A1EA00AC83EB /* InfoPlist.strings */; };
+		7249060218F8A1EA00AC83EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249060118F8A1EA00AC83EB /* main.m */; };
+		7249060618F8A1EA00AC83EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249060518F8A1EA00AC83EB /* AppDelegate.m */; };
+		7249060F18F8A1EA00AC83EB /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249060E18F8A1EA00AC83EB /* DemoViewController.m */; };
+		7249061118F8A1EA00AC83EB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7249061018F8A1EA00AC83EB /* Images.xcassets */; };
+		7249061818F8A1EA00AC83EB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7249061718F8A1EA00AC83EB /* XCTest.framework */; };
+		7249061918F8A1EA00AC83EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724905F518F8A1EA00AC83EB /* Foundation.framework */; };
+		7249061A18F8A1EA00AC83EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724905F918F8A1EA00AC83EB /* UIKit.framework */; };
+		7249062218F8A1EA00AC83EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7249062018F8A1EA00AC83EB /* InfoPlist.strings */; };
+		7249062418F8A1EA00AC83EB /* HMYAssistiveControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249062318F8A1EA00AC83EB /* HMYAssistiveControlTests.m */; };
+		7249063018F8EBC900AC83EB /* HMYAssistiveControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7249062F18F8EBC900AC83EB /* HMYAssistiveControl.m */; };
+		72DE03311AB3B30000DF86AA /* HMYAssistiveLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DE03301AB3B30000DF86AA /* HMYAssistiveLog.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7249061B18F8A1EA00AC83EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 724905EA18F8A1EA00AC83EB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 724905F118F8A1EA00AC83EB;
+			remoteInfo = HUXAssistiveControl;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		724905F218F8A1EA00AC83EB /* HMYAssistiveControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HMYAssistiveControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		724905F518F8A1EA00AC83EB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		724905F718F8A1EA00AC83EB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		724905F918F8A1EA00AC83EB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		724905FD18F8A1EA00AC83EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		724905FF18F8A1EA00AC83EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7249060118F8A1EA00AC83EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7249060318F8A1EA00AC83EB /* HMYAssistiveControl-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMYAssistiveControl-Prefix.pch"; sourceTree = "<group>"; };
+		7249060418F8A1EA00AC83EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7249060518F8A1EA00AC83EB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7249060D18F8A1EA00AC83EB /* DemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
+		7249060E18F8A1EA00AC83EB /* DemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
+		7249061018F8A1EA00AC83EB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7249061618F8A1EA00AC83EB /* HMYAssistiveControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HMYAssistiveControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7249061718F8A1EA00AC83EB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		7249061F18F8A1EA00AC83EB /* HMYAssistiveControlTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HMYAssistiveControlTests-Info.plist"; sourceTree = "<group>"; };
+		7249062118F8A1EA00AC83EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7249062318F8A1EA00AC83EB /* HMYAssistiveControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMYAssistiveControlTests.m; sourceTree = "<group>"; };
+		7249062E18F8EBC900AC83EB /* HMYAssistiveControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMYAssistiveControl.h; sourceTree = "<group>"; };
+		7249062F18F8EBC900AC83EB /* HMYAssistiveControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMYAssistiveControl.m; sourceTree = "<group>"; };
+		72DE032F1AB3B30000DF86AA /* HMYAssistiveLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMYAssistiveLog.h; sourceTree = "<group>"; };
+		72DE03301AB3B30000DF86AA /* HMYAssistiveLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMYAssistiveLog.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		724905EF18F8A1EA00AC83EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				724905F818F8A1EA00AC83EB /* CoreGraphics.framework in Frameworks */,
+				724905FA18F8A1EA00AC83EB /* UIKit.framework in Frameworks */,
+				724905F618F8A1EA00AC83EB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7249061318F8A1EA00AC83EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7249061818F8A1EA00AC83EB /* XCTest.framework in Frameworks */,
+				7249061A18F8A1EA00AC83EB /* UIKit.framework in Frameworks */,
+				7249061918F8A1EA00AC83EB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7216981E1AB3A49700A6B80A /* ScreenLog */ = {
+			isa = PBXGroup;
+			children = (
+				72DE032F1AB3B30000DF86AA /* HMYAssistiveLog.h */,
+				72DE03301AB3B30000DF86AA /* HMYAssistiveLog.m */,
+			);
+			path = ScreenLog;
+			sourceTree = "<group>";
+		};
+		724905E918F8A1EA00AC83EB = {
+			isa = PBXGroup;
+			children = (
+				724905FB18F8A1EA00AC83EB /* HMYAssistiveControl */,
+				7249061D18F8A1EA00AC83EB /* HMYAssistiveControlTests */,
+				724905F418F8A1EA00AC83EB /* Frameworks */,
+				724905F318F8A1EA00AC83EB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		724905F318F8A1EA00AC83EB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				724905F218F8A1EA00AC83EB /* HMYAssistiveControl.app */,
+				7249061618F8A1EA00AC83EB /* HMYAssistiveControlTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		724905F418F8A1EA00AC83EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				724905F518F8A1EA00AC83EB /* Foundation.framework */,
+				724905F718F8A1EA00AC83EB /* CoreGraphics.framework */,
+				724905F918F8A1EA00AC83EB /* UIKit.framework */,
+				7249061718F8A1EA00AC83EB /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		724905FB18F8A1EA00AC83EB /* HMYAssistiveControl */ = {
+			isa = PBXGroup;
+			children = (
+				7249062D18F8A22700AC83EB /* Classes */,
+				7249060418F8A1EA00AC83EB /* AppDelegate.h */,
+				7249060518F8A1EA00AC83EB /* AppDelegate.m */,
+				7249060D18F8A1EA00AC83EB /* DemoViewController.h */,
+				7249060E18F8A1EA00AC83EB /* DemoViewController.m */,
+				7249061018F8A1EA00AC83EB /* Images.xcassets */,
+				724905FC18F8A1EA00AC83EB /* Supporting Files */,
+			);
+			path = HMYAssistiveControl;
+			sourceTree = "<group>";
+		};
+		724905FC18F8A1EA00AC83EB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				724905FD18F8A1EA00AC83EB /* Info.plist */,
+				724905FE18F8A1EA00AC83EB /* InfoPlist.strings */,
+				7249060118F8A1EA00AC83EB /* main.m */,
+				7249060318F8A1EA00AC83EB /* HMYAssistiveControl-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7249061D18F8A1EA00AC83EB /* HMYAssistiveControlTests */ = {
+			isa = PBXGroup;
+			children = (
+				7249062318F8A1EA00AC83EB /* HMYAssistiveControlTests.m */,
+				7249061E18F8A1EA00AC83EB /* Supporting Files */,
+			);
+			path = HMYAssistiveControlTests;
+			sourceTree = "<group>";
+		};
+		7249061E18F8A1EA00AC83EB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7249061F18F8A1EA00AC83EB /* HMYAssistiveControlTests-Info.plist */,
+				7249062018F8A1EA00AC83EB /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7249062D18F8A22700AC83EB /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7216981E1AB3A49700A6B80A /* ScreenLog */,
+				7249062E18F8EBC900AC83EB /* HMYAssistiveControl.h */,
+				7249062F18F8EBC900AC83EB /* HMYAssistiveControl.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		724905F118F8A1EA00AC83EB /* HMYAssistiveControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7249062718F8A1EA00AC83EB /* Build configuration list for PBXNativeTarget "HMYAssistiveControl" */;
+			buildPhases = (
+				724905EE18F8A1EA00AC83EB /* Sources */,
+				724905EF18F8A1EA00AC83EB /* Frameworks */,
+				724905F018F8A1EA00AC83EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HMYAssistiveControl;
+			productName = HUXAssistiveControl;
+			productReference = 724905F218F8A1EA00AC83EB /* HMYAssistiveControl.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7249061518F8A1EA00AC83EB /* HMYAssistiveControlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7249062A18F8A1EA00AC83EB /* Build configuration list for PBXNativeTarget "HMYAssistiveControlTests" */;
+			buildPhases = (
+				7249061218F8A1EA00AC83EB /* Sources */,
+				7249061318F8A1EA00AC83EB /* Frameworks */,
+				7249061418F8A1EA00AC83EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7249061C18F8A1EA00AC83EB /* PBXTargetDependency */,
+			);
+			name = HMYAssistiveControlTests;
+			productName = HUXAssistiveControlTests;
+			productReference = 7249061618F8A1EA00AC83EB /* HMYAssistiveControlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		724905EA18F8A1EA00AC83EB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Haozhe XU";
+				TargetAttributes = {
+					7249061518F8A1EA00AC83EB = {
+						TestTargetID = 724905F118F8A1EA00AC83EB;
+					};
+				};
+			};
+			buildConfigurationList = 724905ED18F8A1EA00AC83EB /* Build configuration list for PBXProject "HMYAssistiveControl" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 724905E918F8A1EA00AC83EB;
+			productRefGroup = 724905F318F8A1EA00AC83EB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				724905F118F8A1EA00AC83EB /* HMYAssistiveControl */,
+				7249061518F8A1EA00AC83EB /* HMYAssistiveControlTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		724905F018F8A1EA00AC83EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7249061118F8A1EA00AC83EB /* Images.xcassets in Resources */,
+				7249060018F8A1EA00AC83EB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7249061418F8A1EA00AC83EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7249062218F8A1EA00AC83EB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		724905EE18F8A1EA00AC83EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72DE03311AB3B30000DF86AA /* HMYAssistiveLog.m in Sources */,
+				7249060F18F8A1EA00AC83EB /* DemoViewController.m in Sources */,
+				7249063018F8EBC900AC83EB /* HMYAssistiveControl.m in Sources */,
+				7249060618F8A1EA00AC83EB /* AppDelegate.m in Sources */,
+				7249060218F8A1EA00AC83EB /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7249061218F8A1EA00AC83EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7249062418F8A1EA00AC83EB /* HMYAssistiveControlTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7249061C18F8A1EA00AC83EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 724905F118F8A1EA00AC83EB /* HMYAssistiveControl */;
+			targetProxy = 7249061B18F8A1EA00AC83EB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		724905FE18F8A1EA00AC83EB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				724905FF18F8A1EA00AC83EB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7249062018F8A1EA00AC83EB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7249062118F8A1EA00AC83EB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7249062518F8A1EA00AC83EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = HMYAssistiveControl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7249062618F8A1EA00AC83EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = HMYAssistiveControl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7249062818F8A1EA00AC83EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HMYAssistiveControl/HMYAssistiveControl-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = HMYAssistiveControl;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7249062918F8A1EA00AC83EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HMYAssistiveControl/HMYAssistiveControl-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = HMYAssistiveControl;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		7249062B18F8A1EA00AC83EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HUXAssistiveControl.app/HUXAssistiveControl";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HUXAssistiveControl/HUXAssistiveControl-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "HUXAssistiveControlTests/HMYAssistiveControlTests-Info.plist";
+				PRODUCT_NAME = HMYAssistiveControlTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		7249062C18F8A1EA00AC83EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HUXAssistiveControl.app/HUXAssistiveControl";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HUXAssistiveControl/HUXAssistiveControl-Prefix.pch";
+				INFOPLIST_FILE = "HUXAssistiveControlTests/HMYAssistiveControlTests-Info.plist";
+				PRODUCT_NAME = HMYAssistiveControlTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		724905ED18F8A1EA00AC83EB /* Build configuration list for PBXProject "HMYAssistiveControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7249062518F8A1EA00AC83EB /* Debug */,
+				7249062618F8A1EA00AC83EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7249062718F8A1EA00AC83EB /* Build configuration list for PBXNativeTarget "HMYAssistiveControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7249062818F8A1EA00AC83EB /* Debug */,
+				7249062918F8A1EA00AC83EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7249062A18F8A1EA00AC83EB /* Build configuration list for PBXNativeTarget "HMYAssistiveControlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7249062B18F8A1EA00AC83EB /* Debug */,
+				7249062C18F8A1EA00AC83EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 724905EA18F8A1EA00AC83EB /* Project object */;
+}
