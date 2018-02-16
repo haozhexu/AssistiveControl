@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		728250412034B0F4002BF3B5 /* AssistiveControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 728250372034B0F4002BF3B5 /* AssistiveControl.framework */; };
 		728250462034B0F4002BF3B5 /* AssistiveControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728250452034B0F4002BF3B5 /* AssistiveControlTests.swift */; };
-		728250482034B0F4002BF3B5 /* AssistiveControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 7282503A2034B0F4002BF3B5 /* AssistiveControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		728250482034B0F4002BF3B5 /* AssistiveControlHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 7282503A2034B0F4002BF3B5 /* AssistiveControlHeaders.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		728250522034B1EC002BF3B5 /* AssistiveControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728250512034B1EC002BF3B5 /* AssistiveControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +25,12 @@
 
 /* Begin PBXFileReference section */
 		728250372034B0F4002BF3B5 /* AssistiveControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AssistiveControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7282503A2034B0F4002BF3B5 /* AssistiveControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssistiveControl.h; sourceTree = "<group>"; };
+		7282503A2034B0F4002BF3B5 /* AssistiveControlHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssistiveControlHeaders.h; sourceTree = "<group>"; };
 		7282503B2034B0F4002BF3B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		728250402034B0F4002BF3B5 /* AssistiveControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssistiveControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		728250452034B0F4002BF3B5 /* AssistiveControlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistiveControlTests.swift; sourceTree = "<group>"; };
 		728250472034B0F4002BF3B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		728250512034B1EC002BF3B5 /* AssistiveControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistiveControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +73,8 @@
 		728250392034B0F4002BF3B5 /* AssistiveControl */ = {
 			isa = PBXGroup;
 			children = (
-				7282503A2034B0F4002BF3B5 /* AssistiveControl.h */,
+				7282503A2034B0F4002BF3B5 /* AssistiveControlHeaders.h */,
+				728250512034B1EC002BF3B5 /* AssistiveControl.swift */,
 				7282503B2034B0F4002BF3B5 /* Info.plist */,
 			);
 			path = AssistiveControl;
@@ -93,7 +96,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				728250482034B0F4002BF3B5 /* AssistiveControl.h in Headers */,
+				728250482034B0F4002BF3B5 /* AssistiveControlHeaders.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +151,7 @@
 				TargetAttributes = {
 					728250362034B0F4002BF3B5 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					7282503F2034B0F4002BF3B5 = {
@@ -196,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				728250522034B1EC002BF3B5 /* AssistiveControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +339,7 @@
 		7282504C2034B0F4002BF3B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -347,6 +353,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.haozhexu.AssistiveControl;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -355,6 +362,7 @@
 		7282504D2034B0F4002BF3B5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -376,6 +384,7 @@
 		7282504F2034B0F4002BF3B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6A6GE2C77T;
 				INFOPLIST_FILE = AssistiveControlTests/Info.plist;
@@ -390,6 +399,7 @@
 		728250502034B0F4002BF3B5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6A6GE2C77T;
 				INFOPLIST_FILE = AssistiveControlTests/Info.plist;
