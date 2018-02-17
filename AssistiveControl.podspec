@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "AssistiveControl"
-  s.version      = "0.0.2"
+  s.version      = "1.0"
   s.summary      = "UIControl subclass which mimics the behaviour of iOS Assistive Touch on screen button, fully customisable and extensible."
 
   # This description is used to generate tags and improve search results.
@@ -26,6 +26,7 @@ Pod::Spec.new do |s|
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
   UIControl subclass which mimics the behaviour of iOS AssistiveTouch, fully customisable and extensible.
+  When it's added to the main window, it behaves like a universal app-wise floating control with collapsed and expanded states, which enables app-wise tasks such like debugging.
                    DESC
 
   s.homepage     = "https://github.com/haozhexu/AssistiveControl"
