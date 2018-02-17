@@ -29,11 +29,14 @@ public class AssistiveControl: UIControl {
     
     public private(set) var assistiveControlState: AssistiveControlState = .collapsed
     
-    public var collapsedView: UIView! {
+    public var collapsedView: UIView? {
         willSet {
-            collapsedView.removeFromSuperview()
-            newValue.isUserInteractionEnabled = false
-            collapsedViewPreviousLocation = newValue.frame.origin
+            if let newValue = newValue {
+                collapsedView?.removeFromSuperview()
+                newValue.isUserInteractionEnabled = false
+                collapsedViewPreviousLocation = newValue.frame.origin
+            }
+            
         }
         didSet {
             if assistiveControlState == .collapsed {
@@ -42,9 +45,9 @@ public class AssistiveControl: UIControl {
         }
     }
     
-    public var expandedView: UIView! {
+    public var expandedView: UIView? {
         willSet {
-            expandedView.removeFromSuperview()
+            expandedView?.removeFromSuperview()
         }
         didSet {
             if assistiveControlState == .expanded {
@@ -67,44 +70,6 @@ public class AssistiveControl: UIControl {
         adjustLocation(animated: false)
     }
     
-    // MARK: - Essential control action events
-    
-    public override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
-        previousTouchLocation = touch.location(in: self.superview)
-        draggedAfterInitialTouch = false
-        
-        return true
-    }
-    
-    public override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
-        draggedAfterInitialTouch = true
-        
-        let touchLocation = touch.location(in: self.superview)
-        
-        if assistiveControlState == .collapsed {
-            let delta = CGPoint(x: touchLocation.x - previousTouchLocation.x, y: touchLocation.y - previousTouchLocation.y)
-            self.center = self.center.applying(CGAffineTransform(translationX: delta.x, y: delta.y))
-        }
-        
-        previousTouchLocation = touchLocation
-        
-        return true
-    }
-    
-    public override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
-        if assistiveControlState == .collapsed {
-            if draggedAfterInitialTouch {
-                adjustLocation(animated: true)
-            } else {
-                showExpandedView()
-            }
-        } else if let touchLocation = touch?.location(in: self) {
-            if expandedView.frame.contains(touchLocation) {
-                showCollapsedView()
-            }
-        }
-    }
-    
     // MARK: - Private
     
     private var previousTouchLocation: CGPoint = .zero
@@ -112,13 +77,17 @@ public class AssistiveControl: UIControl {
     private var draggedAfterInitialTouch = false
     
     private func showCollapsedView() {
-        expandedView.removeFromSuperview()
+        guard let collapsedView = self.collapsedView else {
+            return
+        }
+        
+        expandedView?.removeFromSuperview()
         
         var endFrame = collapsedView.frame
         endFrame.origin = collapsedViewPreviousLocation
         
         self.frame = endFrame
-        collapsedView.center = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
+        collapsedView.center = CGPoint(x: self.bounds.size.width / 2, y: self.bounds.size.height / 2)
         
         self.addSubview(collapsedView)
         adjustLocation(animated: true)
@@ -127,11 +96,13 @@ public class AssistiveControl: UIControl {
     }
     
     private func showExpandedView() {
-        guard let container = self.superview else {
+        guard let container = self.superview, let expandedView = self.expandedView else {
             return
         }
         
-        collapsedView.removeFromSuperview()
+        collapsedView?.removeFromSuperview()
+        
+        collapsedViewPreviousLocation = self.frame.origin
         
         let containerSize = container.bounds.size
         var endFrame = expandedView.frame
@@ -217,6 +188,49 @@ public class AssistiveControl: UIControl {
     }
 }
 
+// MARK: - Essential control action events
+
+extension AssistiveControl {
+    
+    public override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+        previousTouchLocation = touch.location(in: self.superview)
+        draggedAfterInitialTouch = false
+        
+        return true
+    }
+    
+    public override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+        draggedAfterInitialTouch = true
+        
+        let touchLocation = touch.location(in: self.superview)
+        
+        if assistiveControlState == .collapsed {
+            let delta = CGPoint(x: touchLocation.x - previousTouchLocation.x, y: touchLocation.y - previousTouchLocation.y)
+            self.center = self.center.applying(CGAffineTransform(translationX: delta.x, y: delta.y))
+        }
+        
+        previousTouchLocation = touchLocation
+        
+        return true
+    }
+    
+    public override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
+        if assistiveControlState == .collapsed {
+            if draggedAfterInitialTouch {
+                
+                adjustLocation(animated: true)
+            } else {
+                showExpandedView()
+            }
+        } else if let touchLocation = touch?.location(in: self) {
+            if expandedView?.frame.contains(touchLocation)  ?? false == false {
+                showCollapsedView()
+            }
+        }
+    }
+}
+
+
 extension AssistiveControl {
     
     public static func create(in containerView: UIView, collapsedView: UIView!, expandedView: UIView!) -> AssistiveControl {
@@ -236,5 +250,4 @@ extension AssistiveControl {
         }
         return nil
     }
-    
 }
