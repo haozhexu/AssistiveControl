@@ -41,18 +41,43 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMe-ma-YqN">
+                                <rect key="frame" x="187" y="388.5" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BH8-mf-z9v">
+                                <rect key="frame" x="101" y="607" width="173" height="29"/>
+                                <segments>
+                                    <segment title="Sticky Edge"/>
+                                    <segment title="Free Style"/>
+                                </segments>
+                                <connections>
+                                    <action selector="parkingBehaviorControlValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="9vw-PS-cmz"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ePQ-8g-Uk8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="10" id="Cvj-F1-UUs"/>
+                            <constraint firstItem="vMe-ma-YqN" firstAttribute="top" secondItem="ePQ-8g-Uk8" secondAttribute="bottom" constant="8" symbolic="YES" id="GC2-MB-BnH"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ePQ-8g-Uk8" secondAttribute="bottom" constant="10" id="RYP-Uk-pS5"/>
                             <constraint firstItem="ePQ-8g-Uk8" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RaH-L0-eRO"/>
                             <constraint firstItem="ePQ-8g-Uk8" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="ZmP-Yq-YY9"/>
+                            <constraint firstItem="vMe-ma-YqN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cvz-7l-fmY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ePQ-8g-Uk8" secondAttribute="trailing" constant="10" id="f5M-5v-twq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BH8-mf-z9v" secondAttribute="bottom" constant="32" id="fVv-sW-OON"/>
+                            <constraint firstItem="BH8-mf-z9v" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fW8-eu-EE9"/>
+                            <constraint firstItem="vMe-ma-YqN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gDi-qr-NBh"/>
                             <constraint firstItem="ePQ-8g-Uk8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="ksT-Xq-be5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="vMe-ma-YqN" id="ief-r2-nIX"/>
+                        <outlet property="parkingBehaviorControl" destination="BH8-mf-z9v" id="Cq5-2v-dd2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
