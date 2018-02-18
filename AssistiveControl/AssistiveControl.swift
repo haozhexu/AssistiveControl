@@ -9,18 +9,51 @@
 import Foundation
 import UIKit
 
+/**
+ Delegate of `AssistiveControl` that notifies the states change of the control.
+ The control can be in either collapsed or expanded states, when in collapsed state, it can be moved (ie. dragged) within its super view; When in expanded state, the expanded view is center-aligned within its superview and a touch outside expanded view will transit it to collapsed state.
+ **/
+public protocol AssistiveControlDelegate: class {
+    
+    /// Notifies when the assistive control will collapse
+    func assistiveControlWillCollapse(_ assistiveControl: AssistiveControl)
+    
+    /// Notifies when the assistive control did collapse
+    func assistiveControlDidCollapse(_ assistiveControl: AssistiveControl)
+    
+    /// Notifies when the assistive control will expand
+    func assistiveControlWillExpand(_ assistiveControl: AssistiveControl)
+    
+    /// Notifies when the assistive control did expand
+    func assistiveControlDidExpand(_ assistiveControl: AssistiveControl)
+    
+    /// Notifies when user moves assistive control
+    /// this can be only invoked for collapsed state
+    func assistiveControlDidMove(_ assistiveControl: AssistiveControl)
+}
+
+/**
+ A UI control subclass that mimics iOS Assistive Touch.
+ **/
 public class AssistiveControl: UIControl {
     
+    /// parking behavior of assistive control when in collapsed state
     public enum ParkingBehavior {
+        
+        /// sticks to nearest edge of superview
         case stickyEdge
+        
+        /// stays where it is
         case freestyle
     }
     
+    /// states of assistive control
     public enum AssistiveControlState {
         case collapsed
         case expanded
     }
     
+    /// parking behavior of assistive control
     public var parkingBehavior: ParkingBehavior {
         didSet {
             self.adjustLocation(animated: false)
@@ -55,6 +88,9 @@ public class AssistiveControl: UIControl {
             }
         }
     }
+    
+    /// Optional delegate to receive state change events
+    public var delegate: AssistiveControlDelegate?
     
     public required init?(coder aDecoder: NSCoder) {
         parkingBehavior = .stickyEdge
@@ -143,7 +179,7 @@ public class AssistiveControl: UIControl {
     }
     
     private enum Constants {
-        static let animationDuration = 0.3
+        static let animationDuration = 0.2
     }
     
     private enum Edge {
@@ -207,6 +243,7 @@ extension AssistiveControl {
         if assistiveControlState == .collapsed {
             let delta = CGPoint(x: touchLocation.x - previousTouchLocation.x, y: touchLocation.y - previousTouchLocation.y)
             self.center = self.center.applying(CGAffineTransform(translationX: delta.x, y: delta.y))
+            self.delegate?.assistiveControlDidMove(self)
         }
         
         previousTouchLocation = touchLocation
@@ -217,22 +254,28 @@ extension AssistiveControl {
     public override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         if assistiveControlState == .collapsed {
             if draggedAfterInitialTouch {
-                
                 adjustLocation(animated: true)
             } else {
+                delegate?.assistiveControlWillExpand(self)
                 showExpandedView()
+                delegate?.assistiveControlDidExpand(self)
             }
         } else if let touchLocation = touch?.location(in: self) {
             if expandedView?.frame.contains(touchLocation)  ?? false == false {
+                delegate?.assistiveControlWillCollapse(self)
                 showCollapsedView()
+                delegate?.assistiveControlDidCollapse(self)
             }
         }
     }
 }
 
-
+/**
+ Convenient way of creating assistive control
+ **/
 extension AssistiveControl {
     
+    /// Create `AssistiveControl` with specified collapsed and expanded views, and add it to specified container view
     public static func create(in containerView: UIView, collapsedView: UIView!, expandedView: UIView!) -> AssistiveControl {
         let control = AssistiveControl(frame: collapsedView.frame)
         
@@ -244,6 +287,7 @@ extension AssistiveControl {
         return control
     }
     
+    /// Create `AssistiveControl` in application's main window with specified collapsed and expanded views
     public static func createInMainWindow(collapsedView: UIView!, expandedView: UIView!) -> AssistiveControl? {
         if let appDelegate = UIApplication.shared.delegate, let window = appDelegate.window ?? nil {
             return create(in: window, collapsedView: collapsedView, expandedView: expandedView)
