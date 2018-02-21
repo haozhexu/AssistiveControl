@@ -32,6 +32,10 @@ public protocol AssistiveControlDelegate: class {
     func assistiveControlDidMove(_ assistiveControl: AssistiveControl)
 }
 
+public protocol AssistiveControlViewProvider: class {
+    var view: UIView { get }
+}
+
 /**
  A UI control subclass that mimics iOS Assistive Touch.
  **/
@@ -63,13 +67,46 @@ public class AssistiveControl: UIControl {
     public private(set) var assistiveControlState: AssistiveControlState = .collapsed
     
     public var collapsedView: UIView? {
+        set {
+            collapsedViewProvider = {
+                guard let newValue = newValue else {
+                    return nil
+                }
+                return ViewProvider(view: newValue)
+            }()
+        }
+        get {
+            guard let collapsedViewProvider = collapsedViewProvider else {
+                return nil
+            }
+            return collapsedViewProvider.view
+        }
+    }
+    
+    public var expandedView: UIView? {
+        set {
+            expandedViewProvider = {
+                guard let newValue = newValue else {
+                    return nil
+                }
+                return ViewProvider(view: newValue)
+            }()
+        }
+        get {
+            guard let expandedViewProvider = expandedViewProvider else {
+                return nil
+            }
+            return expandedViewProvider.view
+        }
+    }
+    
+    public var collapsedViewProvider: AssistiveControlViewProvider? {
         willSet {
             if let newValue = newValue {
-                collapsedView?.removeFromSuperview()
-                newValue.isUserInteractionEnabled = false
-                collapsedViewPreviousLocation = newValue.frame.origin
+                collapsedViewProvider?.view.removeFromSuperview()
+                newValue.view.isUserInteractionEnabled = false
+                collapsedViewPreviousLocation = newValue.view.frame.origin
             }
-            
         }
         didSet {
             if assistiveControlState == .collapsed {
@@ -78,9 +115,9 @@ public class AssistiveControl: UIControl {
         }
     }
     
-    public var expandedView: UIView? {
+    public var expandedViewProvider: AssistiveControlViewProvider? {
         willSet {
-            expandedView?.removeFromSuperview()
+            expandedViewProvider?.view.removeFromSuperview()
         }
         didSet {
             if assistiveControlState == .expanded {
@@ -117,7 +154,7 @@ public class AssistiveControl: UIControl {
             return
         }
         
-        expandedView?.removeFromSuperview()
+        expandedViewProvider?.view.removeFromSuperview()
         
         var endFrame = collapsedView.frame
         endFrame.origin = collapsedViewPreviousLocation
@@ -132,7 +169,7 @@ public class AssistiveControl: UIControl {
     }
     
     private func showExpandedView() {
-        guard let container = self.superview, let expandedView = self.expandedView else {
+        guard let container = self.superview, let expandedView = self.expandedViewProvider?.view else {
             return
         }
         
@@ -224,6 +261,19 @@ public class AssistiveControl: UIControl {
     }
 }
 
+extension AssistiveControl {
+    
+    private class ViewProvider: AssistiveControlViewProvider {
+        
+        let view: UIView
+        
+        init(view: UIView) {
+            self.view = view
+        }
+    }
+
+}
+
 // MARK: - Essential control action events
 
 extension AssistiveControl {
@@ -261,7 +311,7 @@ extension AssistiveControl {
                 delegate?.assistiveControlDidExpand(self)
             }
         } else if let touchLocation = touch?.location(in: self) {
-            if expandedView?.frame.contains(touchLocation)  ?? false == false {
+            if expandedViewProvider?.view.frame.contains(touchLocation)  ?? false == false {
                 delegate?.assistiveControlWillCollapse(self)
                 showCollapsedView()
                 delegate?.assistiveControlDidCollapse(self)
