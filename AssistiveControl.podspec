@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "AssistiveControl"
-  s.version      = "1.3"
+  s.version      = "1.4"
   s.summary      = "UIControl subclass which mimics the behaviour of iOS Assistive Touch on screen button, fully customisable and extensible."
 
   s.description  = <<-DESC
