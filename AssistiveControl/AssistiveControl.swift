@@ -33,7 +33,7 @@ public protocol AssistiveControlDelegate: class {
 }
 
 public protocol AssistiveControlViewProvider: class {
-    var view: UIView { get }
+    var assistiveView: UIView { get }
 }
 
 /**
@@ -72,14 +72,14 @@ public class AssistiveControl: UIControl {
                 guard let newValue = newValue else {
                     return nil
                 }
-                return ViewProvider(view: newValue)
+                return ViewProvider(newValue)
             }()
         }
         get {
             guard let collapsedViewProvider = collapsedViewProvider else {
                 return nil
             }
-            return collapsedViewProvider.view
+            return collapsedViewProvider.assistiveView
         }
     }
     
@@ -89,23 +89,23 @@ public class AssistiveControl: UIControl {
                 guard let newValue = newValue else {
                     return nil
                 }
-                return ViewProvider(view: newValue)
+                return ViewProvider(newValue)
             }()
         }
         get {
             guard let expandedViewProvider = expandedViewProvider else {
                 return nil
             }
-            return expandedViewProvider.view
+            return expandedViewProvider.assistiveView
         }
     }
     
     public var collapsedViewProvider: AssistiveControlViewProvider? {
         willSet {
             if let newValue = newValue {
-                collapsedViewProvider?.view.removeFromSuperview()
-                newValue.view.isUserInteractionEnabled = false
-                collapsedViewPreviousLocation = newValue.view.frame.origin
+                collapsedViewProvider?.assistiveView.removeFromSuperview()
+                newValue.assistiveView.isUserInteractionEnabled = false
+                collapsedViewPreviousLocation = newValue.assistiveView.frame.origin
             }
         }
         didSet {
@@ -117,7 +117,7 @@ public class AssistiveControl: UIControl {
     
     public var expandedViewProvider: AssistiveControlViewProvider? {
         willSet {
-            expandedViewProvider?.view.removeFromSuperview()
+            expandedViewProvider?.assistiveView.removeFromSuperview()
         }
         didSet {
             if assistiveControlState == .expanded {
@@ -154,7 +154,7 @@ public class AssistiveControl: UIControl {
             return
         }
         
-        expandedViewProvider?.view.removeFromSuperview()
+        expandedViewProvider?.assistiveView.removeFromSuperview()
         
         var endFrame = collapsedView.frame
         endFrame.origin = collapsedViewPreviousLocation
@@ -169,7 +169,7 @@ public class AssistiveControl: UIControl {
     }
     
     private func showExpandedView() {
-        guard let container = self.superview, let expandedView = self.expandedViewProvider?.view else {
+        guard let container = self.superview, let expandedView = self.expandedViewProvider?.assistiveView else {
             return
         }
         
@@ -265,10 +265,10 @@ extension AssistiveControl {
     
     private class ViewProvider: AssistiveControlViewProvider {
         
-        let view: UIView
+        let assistiveView: UIView
         
-        init(view: UIView) {
-            self.view = view
+        init(_ view: UIView) {
+            self.assistiveView = view
         }
     }
 
@@ -311,7 +311,7 @@ extension AssistiveControl {
                 delegate?.assistiveControlDidExpand(self)
             }
         } else if let touchLocation = touch?.location(in: self) {
-            if expandedViewProvider?.view.frame.contains(touchLocation)  ?? false == false {
+            if expandedViewProvider?.assistiveView.frame.contains(touchLocation) ?? false == false {
                 delegate?.assistiveControlWillCollapse(self)
                 showCollapsedView()
                 delegate?.assistiveControlDidCollapse(self)
